@@ -35,7 +35,7 @@ Assuming your model name is Blog and the model has two text columns title and co
 ```ruby
 class Blog < ActiveRecord::Base
   search_qd_columns :title, :content
- end
+end
 
 Blog.search_qd("some text to seach for") # search for 'some text to search for' in title and content column
 Blog.search_qd("some text to search for", "title") # search for 'some text to search for' in title column
@@ -49,3 +49,7 @@ of columns is given, the search\_qd method uses the column list defined by searc
 
 * ActiveRecord
 * Ruby 1.9.\*
+
+## License
+
+This gem is created by Karsten Gallinowski and released under the MIT License.
