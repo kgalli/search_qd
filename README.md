@@ -6,38 +6,41 @@ SearchQd extends ActiveRecord and offers a method called search\_qd
 for a simple full text search. Simple because the search functionality is
 executed as SQL LIKE statements for given (text) columns.
 
-## FEATURES/PROBLEMS
+## Quick start
 
-## SYNOPSIS
 
-### Quick start
-
-  gem install search\_qd
-
+```ruby
+gem install search\_qd
+```
 
 * Rails 3
 
 Add the following line to your Gemfile 
 
-  gem 'search\_qd'
+```ruby
+gem 'search\_qd'
+```
 
 * ActiveRecord outside of Rails
 
-  require 'search\_qd'
-  ActiveRecord::Base.send(:include, SearchQd)
+```ruby
+require 'search\_qd'
+ActiveRecord::Base.send(:include, SearchQd)
+```
 
-### Usage
+## Usage
 
 Assuming your model name is Blog and the model has two text columns title and content:
 
-  class Blog < ActiveRecord::Base
-    search_qd_columns :title, :content
-
-  end
+```ruby
+class Blog < ActiveRecord::Base
+  search_qd_columns :title, :content
+ end
 
   Blog.search\_qd("some text to seach for") # search for 'some text to search for' in title and content column
   Blog.search\_qd("some text to search for", "title") # search for 'some text to search for' in title column
   Blog.search\_qd("some text to search for", "user\_name") # search for 'some text to search for' in user\_name column
+```
 
 As shown in the example above the search\_qd method expects the search query as a string and a list of columns. If no list 
 of columns is given, the search\_qd method uses the column list defined by search\_qd\_columns (see class Blog definition).
