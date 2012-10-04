@@ -10,7 +10,7 @@ executed as SQL LIKE statements for given (text) columns.
 
 
 ```ruby
-gem install search\_qd
+gem install search_qd
 ```
 
 * Rails 3
@@ -18,13 +18,13 @@ gem install search\_qd
 Add the following line to your Gemfile 
 
 ```ruby
-gem 'search\_qd'
+gem 'search_qd'
 ```
 
 * ActiveRecord outside of Rails
 
 ```ruby
-require 'search\_qd'
+require 'search_qd'
 ActiveRecord::Base.send(:include, SearchQd)
 ```
 
@@ -37,9 +37,9 @@ class Blog < ActiveRecord::Base
   search_qd_columns :title, :content
  end
 
-  Blog.search\_qd("some text to seach for") # search for 'some text to search for' in title and content column
-  Blog.search\_qd("some text to search for", "title") # search for 'some text to search for' in title column
-  Blog.search\_qd("some text to search for", "user\_name") # search for 'some text to search for' in user\_name column
+Blog.search_qd("some text to seach for") # search for 'some text to search for' in title and content column
+Blog.search_qd("some text to search for", "title") # search for 'some text to search for' in title column
+Blog.search_qd("some text to search for", "user_name") # search for 'some text to search for' in user_name column
 ```
 
 As shown in the example above the search\_qd method expects the search query as a string and a list of columns. If no list 
