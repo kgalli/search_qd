@@ -36,10 +36,12 @@ Assuming your model name is Blog and the model has two text columns title and co
 class Blog < ActiveRecord::Base
   search_qd_columns :title, :content
 end
-
-Blog.search_qd("some text to seach for") # search for 'some text to search for' in title and content column
-Blog.search_qd("some text to search for", "title") # search for 'some text to search for' in title column
-Blog.search_qd("some text to search for", "user_name") # search for 'some text to search for' in user_name column
+# search for 'some text to search for' in title and content column
+Blog.search_qd("some text to seach for") 
+# search for 'some text to search for' in title column
+Blog.search_qd("some text to search for", ["title"]) 
+# search for 'some text to search for' in user_name or title column 
+Blog.search_qd("some text to search for", ["user_name", "title"]) 
 ```
 
 As shown in the example above the search\_qd method expects the search query as a string and a list of columns. If no list 
